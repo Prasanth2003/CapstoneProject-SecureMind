@@ -25,7 +25,6 @@ export class HomepageComponent implements OnInit {
       type: ['', Validators.required],
       description: ['', Validators.required]
     });
-    localStorage.setItem("AuthenticationToken","Bearer")
   }
 
   ngOnInit(): void {
@@ -148,6 +147,7 @@ export class HomepageComponent implements OnInit {
       Location: {
         Latitude: latitude,
         Longitude: longitude,
+        LocationName: this.incidentForm.value.location
       },
       ReportTime: new Date().toISOString(),
     };
