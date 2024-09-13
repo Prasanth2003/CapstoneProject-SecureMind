@@ -56,7 +56,11 @@ export class QuestionnaireComponent {
     }
     this.currentStep++;
   }
-
+  previousStep() {
+    if (this.currentStep > 0) {
+      this.currentStep--;
+    }
+  }
   toggleSelection(option: string, type: string) {
     if (type === 'reasons') {
       this.selectedReasons.includes(option) 

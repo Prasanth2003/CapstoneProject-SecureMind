@@ -30,14 +30,19 @@
         <label class="radio-option">
           <input type="radio" name="therapyType" (change)="nextStep('Teen')" /> Teen (for my child)
         </label>
+        <div class="button-container">
+        </div>
       </div>
 
       <!-- Step 2: Age -->
-      <div *ngSwitchCase="1" class="age-section">
+      <div *ngSwitchCase="1">
         <h3 class="step-heading">How old are you?</h3>
-        <select  id="age" class="styled-select" (change)="onAgeChange($event)">
+        <select id="age" class="styled-select" (change)="onAgeChange($event)">
           <option *ngFor="let age of ages" [value]="age">{{ age }}</option>
         </select>
+        <div class="button-container">
+          <button class="back-btn" (click)="previousStep()">Back</button>
+        </div>
       </div>
 
       <!-- Step 3: Gender Identity -->
@@ -48,6 +53,9 @@
         <label class="radio-option"><input type="radio" name="gender" (change)="nextStep('Lesbian')" /> Lesbian</label>
         <label class="radio-option"><input type="radio" name="gender" (change)="nextStep('Bi or Pan')" /> Bi or Pan</label>
         <label class="radio-option"><input type="radio" name="gender" (change)="nextStep('Prefer not to say')" /> Prefer not to say</label>
+        <div class="button-container">
+          <button class="back-btn" (click)="previousStep()">Back</button>
+        </div>
       </div>
 
       <!-- Step 4: Importance of Religion -->
@@ -57,6 +65,9 @@
         <label class="radio-option"><input type="radio" name="religion" (change)="nextStep('Important')" /> Important</label>
         <label class="radio-option"><input type="radio" name="religion" (change)="nextStep('Somewhat important')" /> Somewhat important</label>
         <label class="radio-option"><input type="radio" name="religion" (change)="nextStep('Not important at all')" /> Not important at all</label>
+        <div class="button-container">
+          <button class="back-btn" (click)="previousStep()">Back</button>
+        </div>
       </div>
 
       <!-- Step 5: Alcohol Consumption -->
@@ -67,6 +78,9 @@
         <label class="radio-option"><input type="radio" name="alcohol" (change)="nextStep('Monthly')" /> Monthly</label>
         <label class="radio-option"><input type="radio" name="alcohol" (change)="nextStep('Weekly')" /> Weekly</label>
         <label class="radio-option"><input type="radio" name="alcohol" (change)="nextStep('Daily')" /> Daily</label>
+        <div class="button-container">
+          <button class="back-btn" (click)="previousStep()">Back</button>
+        </div>
       </div>
 
       <!-- Step 6: Reason for Therapy -->
@@ -75,7 +89,10 @@
         <div *ngFor="let reason of therapyReasons" class="checkbox-option">
           <label><input type="checkbox" (change)="toggleSelection(reason, 'reasons')" /> {{ reason }}</label>
         </div>
-        <button class="next-btn" (click)="nextStep()">Next</button>
+        <div class="button-container">
+          <button class="back-btn" (click)="previousStep()">Back</button>
+          <button class="next-btn" (click)="nextStep()">Next</button>
+        </div>
       </div>
 
       <!-- Step 7: Expectations from Therapist -->
@@ -84,7 +101,10 @@
         <div *ngFor="let expectation of therapyExpectations" class="checkbox-option">
           <label><input type="checkbox" (change)="toggleSelection(expectation, 'expectations')" /> {{ expectation }}</label>
         </div>
-        <button class="find-counselor-btn" (click)="submitForm()">Find Counselors</button>
+        <div class="button-container">
+          <button class="back-btn" (click)="previousStep()">Back</button>
+          <button class="find-counselor-btn" (click)="submitForm()">Find Counselors</button>
+        </div>
       </div>
 
       <!-- Default case when all steps are completed -->

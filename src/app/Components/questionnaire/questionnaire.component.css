@@ -139,37 +139,56 @@ input[type="checkbox"] {
 
 /* Common button styles */
 button {
-  width: 100%;
-  padding: 12px 20px;
-  margin-top: 20px;
-  border: none;
+  padding: 10px 16px; /* Adjust padding to make buttons more compact */
   border-radius: 50px;
-  font-size: 1rem;
+  font-size: 0.875rem; /* Slightly smaller font size */
   color: #ffffff;
   cursor: pointer;
   font-weight: bold;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  border: none;
+}
+
+/* Button container styling */
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
 /* Next button styling */
 .next-btn {
-  background-color: #00a884;
+  background-color: #00796b; /* Consistent color */
 }
 
 .next-btn:hover {
-  background-color: #008f6e;
+  background-color: #00695c;
+  transform: scale(1.05);
+}
+
+/* Back button styling */
+.back-btn {
+  background-color: #00796b; /* Consistent color */
+}
+
+.back-btn:hover {
+  background-color: #00695c;
   transform: scale(1.05);
 }
 
 /* Find counselor button styling */
 .find-counselor-btn {
-  background-color: #00796b;
+  background-color: #00695c;
+  transform: scale(1.05);
+    padding: 10px 16px; /* Adjust padding for consistency */
 }
 
 .find-counselor-btn:hover {
   background-color: #00695c;
   transform: scale(1.05);
 }
-.age-section{
+
+/* Age section styling (if applicable) */
+.age-section {
   margin-bottom: 100px;
 }
