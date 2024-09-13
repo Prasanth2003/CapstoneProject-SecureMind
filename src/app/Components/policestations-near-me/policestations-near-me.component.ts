@@ -11,6 +11,7 @@ export class PolicestationsNearMeComponent {
   address: string = '';
   policeStations: any[] = [];
   errorMessage: string = '';
+  isLoading: boolean = false; 
 
   constructor(private policeService: PolicestationService) {}
 
@@ -18,6 +19,7 @@ export class PolicestationsNearMeComponent {
     this.errorMessage = '';
     this.policeStations = [];
     if (!this.address.trim()) return;
+    this.isLoading = true; 
 
     this.policeService.getCoordinates(this.address).pipe(
       switchMap(response => {
@@ -30,17 +32,20 @@ export class PolicestationsNearMeComponent {
       }),
       catchError(error => {
         this.errorMessage = 'Error fetching police stations.';
+        this.isLoading = false; // Stop loading on error
         return of([]);
       })
     ).subscribe(
       (stations: any[]) => {
         this.policeStations = stations;
+        this.isLoading = false; // Stop loading after receiving data
         if (this.policeStations.length === 0) {
           this.errorMessage = 'No police stations found.';
         }
       },
       error => {
         this.errorMessage = 'Error occurred.';
+        this.isLoading = false; // Stop loading on error
       }
     );
   }

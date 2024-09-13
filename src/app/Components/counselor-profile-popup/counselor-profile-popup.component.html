@@ -7,8 +7,8 @@
         <h2 class="counselor-name">{{ counselor.name }}</h2>
         <p class="counselor-specialization">{{ counselor.specialization }}</p>
         <div class="profile-contact-info">
-          <p><i class="fas fa-envelope"></i> {{ counselor.contactInfo }}</p>
-          <p><i class="fas fa-map-marker-alt"></i> {{ counselor.location }}</p>
+          <p><i class="fas fa-envelope"></i> <b> Contact info :  </b> {{ counselor.contactInfo }}</p>
+          <p><i class="fas fa-map-marker-alt"></i> <b>Location :  </b>  {{ counselor.location }}</p>
         </div>
         <button class="close-button" (click)="closePopup()">Close</button>
       </div>

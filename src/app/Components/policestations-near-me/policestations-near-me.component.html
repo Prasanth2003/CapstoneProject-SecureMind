@@ -1,9 +1,9 @@
 <div class="container text-center my-5">
-    <h1>Find your Nearest Police Stations</h1>
+    <h1><b>Find your Nearest Police Stations</b></h1>
     <form class="mt-4">
       <div class="input-group">
         <span class="input-group-text">
-          <i class="bi bi-search"></i> <!-- Bootstrap icon for search -->
+          <i class="bi bi-search"></i> 
         </span>
         <input
           type="text"
@@ -16,8 +16,14 @@
       </div>
     </form>
     <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
-
-  <div class="card-container" *ngIf="policeStations.length > 0">
+    <div *ngIf="isLoading" class="loading">
+      <p>Loading Police Stations...</p>
+      <!-- Add a spinner if desired -->
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  <div class="card-container" *ngIf="!isLoading && policeStations.length > 0">
     <div *ngFor="let station of policeStations" class="card">
       <h4 class="card-title">{{ station.name }}</h4>
       <p class="card-address">{{ station.address }}</p>

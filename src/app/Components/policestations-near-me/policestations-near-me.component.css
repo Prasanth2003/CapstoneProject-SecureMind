@@ -63,4 +63,15 @@
     color: red;
     font-size: 1rem;
   }
+
+  .loading {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #080808;
+  }
+  
+  .spinner-border {
+    margin-top: 10px;
+  }
+  
   

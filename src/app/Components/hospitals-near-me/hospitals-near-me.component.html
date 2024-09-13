@@ -1,5 +1,5 @@
 <div class="container text-center my-5">
-  <h1>Find Your Nearest Hospitals</h1>
+  <h1><b> Find Your Nearest Hospitals </b></h1>
   <form class="mt-4">
     <div class="input-group">
       <span class="input-group-text">
@@ -16,7 +16,15 @@
     </div>
   </form>
   <div  *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
-  <div class="card-container" *ngIf="hospitals.length > 0">
+  <div *ngIf="isLoading" class="loading">
+    <p>Loading hospitals...</p>
+    <!-- Add a spinner if desired -->
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <div class="card-container" *ngIf="!isLoading && hospitals.length > 0">
     <div class="card" *ngFor="let hospital of hospitals">
       <div class="card-body">
         <h5 class="card-title">{{ hospital.name }}</h5>
